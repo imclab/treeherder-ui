@@ -12,7 +12,7 @@
     </a>
     <a class="btn btn-info"
        ng-click="isCollapsedRevisions = !isCollapsedRevisions">
-        {{push.author}} - {{push.push_timestamp}}
+        {{push.push_timestamp*1000|date:'medium'}} - {{push.author}}
     </a>
 
     <span class="pushactions">
