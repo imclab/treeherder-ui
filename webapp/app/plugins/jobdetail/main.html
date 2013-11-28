@@ -39,17 +39,17 @@
                 <i class="glyphicon glyphicon-plus" ng-click="addNote()" title="add note"></i>
                 <span class="label label-info">Notes</span>
             </dt>
-            <dd class="th-notes-accordion">
+            <dd>
                 <div ng-hide="notes.length==0">
-                    <span th-star star-id="notes[0].failure_classification_id"></span> {{job.note.failure_classification_id}}{{ notes[0].note_timestamp*1000|date:'medium' }} <span class="label label-info" ng-bind="notes[0].who"></span> said <em>"<span ng-bind="notes[0].note"></span>"</em>
+                    <span th-star star-id="notes[0].failure_classification_id"></span> {{ notes[0].note_timestamp*1000|date:'medium' }} <span class="label label-info" ng-bind="notes[0].who"></span> said <em>"<span ng-bind="notes[0].note"></span>"</em>
                 </div>
                 <span ng-show="notes.length==0">No notes</span>
             </dd>
         </dl>
         <div ng-show="newNote">
             <form ng-submit="saveNote()" class="form-inline">
-                <select ng-model="newNote.failure_classification_id">
-                    <option ng-repeat="(value, star) in starTypes" value="{{value}}">{{star.name}}</option>
+                <select ng-model="newNote.failure_classification_id"
+                        ng-options="key as value.name for (key, value) in starTypes">
                 </select>
                 <input ng-model="newNote.note" focus-me="focusInput"/>
                 <input class="btn btn-primary" type="submit" value="save">

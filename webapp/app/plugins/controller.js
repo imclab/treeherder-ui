@@ -10,8 +10,8 @@ treeherder.controller('PluginCtrl',
                 active: true
             },
             {
-                title: "Jobs Foo",
-                content: "plugins/jobfoo/main.html"
+                title: "Note History",
+                content: "plugins/notehistory/main.html"
             }
         ];
 

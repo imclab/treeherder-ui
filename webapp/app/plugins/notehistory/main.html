@@ -1,0 +1,9 @@
+<div ng-controller="NoteHistoryPluginCtrl">
+    <div class="span12">
+        <div ng-repeat="note in notes" >
+                <span th-star star-id="note.failure_classification_id"></span>{{ note.note_timestamp*1000|date:'medium' }} <span class="label label-info" ng-bind="note.who"></span> said <em>"<span ng-bind="note.note"></span>"</em>
+        </div>
+        <span ng-show="notes.length==0">No notes</span>
+    </div>
+    <button ng-click="updateNotes()">update notes</button>
+</div>

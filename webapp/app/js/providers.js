@@ -29,7 +29,7 @@ treeherder.provider('thStarTypes', function() {
             },
             4: {
                    name: "intermittent needs filing",
-                   star: "label-important"
+                   star: "label-danger"
             }
         };
     };
