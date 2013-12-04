@@ -44,7 +44,7 @@
             <ul class="list-unstyled">
                 <li ng-repeat="revision in resultset.revision_list"
                     class="revision">
-                    <span class="label label-default">{{revision.revision}}</span> {{revision.author}} <span ng-show="revision.comment" class="italic">"{{revision.comments}}"</span>
+                    <a href="#">{{revision.revision}}</a> {{revision.author}} <span ng-show="revision.comment" class="italic">"{{revision.comments}}"</span>
                 </li>
             </ul>
         </span>
