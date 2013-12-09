@@ -2,15 +2,17 @@
 
 treeherder.controller('JobsCtrl',
     function JobsCtrl($scope, $http, $rootScope, $routeParams, $log,
-                      thUrl, thResultSets) {
+                      thUrl, thResultSets, thRepos) {
 
-        // set the default repo to mozilla-central if not specified
+        // set the default repo to mozilla-inbound if not specified
         if ($routeParams.hasOwnProperty("repo") &&
             $routeParams.repo !== "") {
-            $rootScope.repo = $routeParams.repo;
+            $rootScope.repoName = $routeParams.repo;
         } else {
-            $rootScope.repo = "mozilla-inbound";
+            $rootScope.repoName = "mozilla-inbound";
         }
+
+        thRepos.load($scope.repoName);
 
         $scope.offset = 0;
         $scope.result_sets = [];
@@ -80,9 +82,6 @@ treeherder.controller('ResultSetCtrl',
                 }
             }
         }
-
-
-
 
         $scope.viewJob = function(job) {
             // set the selected job

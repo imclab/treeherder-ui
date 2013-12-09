@@ -99,3 +99,14 @@ treeherder.directive('thShowJobs', function ($parse, thResultStatusInfo) {
                        '{{ \' jobs\' | showOrHide:isCollapsedResults }}</a>'
     };
 });
+
+treeherder.directive('thRevision', function($parse) {
+
+    return {
+        restrict: "E",
+        link: function(scope, element, attrs) {
+            scope.revisionUrl = scope.currentRepo.url + "/rev/" + scope.revision.revision;
+        },
+        templateUrl: 'partials/thRevision.html'
+    };
+});
